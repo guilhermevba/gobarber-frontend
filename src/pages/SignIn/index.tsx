@@ -54,7 +54,7 @@ const SignIn: React.FC = () => {
         setWaitingRequest(false);
       }
     },
-    [signIn, addToast],
+    [signIn, history, addToast],
   );
 
   return (

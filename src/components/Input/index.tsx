@@ -17,6 +17,7 @@ const Input: React.FC<InputProps> = ({
 }) => {
   const inputRef = useRef(null);
   const { fieldName, registerField, error, defaultValue } = useField(name);
+
   useEffect(() => {
     registerField({
       name: fieldName,
@@ -24,13 +25,21 @@ const Input: React.FC<InputProps> = ({
       path: 'value',
     });
   }, [fieldName, registerField]);
+
   return (
     <Container
       style={containerStyle}
       hasErrors={!!error}
       hasIcon={Icon !== undefined}
+      data-testid="container-input-id"
     >
-      <input name={name} defaultValue={defaultValue} ref={inputRef} {...rest} />
+      <input
+        name={name}
+        defaultValue={defaultValue}
+        ref={inputRef}
+        data-testid="input-id"
+        {...rest}
+      />
       {Icon && <Icon size={20} />}
       {error && (
         <Error title={error}>

@@ -5,7 +5,7 @@ interface Props {
   hasIcon: boolean;
   hasErrors: boolean;
 }
-export default styled.div<Props>`
+export default styled.div.attrs({ className: 'custom-input' })<Props>`
   display: flex;
   position: relative;
   align-items: center;
